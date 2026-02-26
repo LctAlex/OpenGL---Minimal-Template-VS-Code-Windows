@@ -1,0 +1,36 @@
+A step-by-step setup tutorial of this project folder:
+
+(We'll use STATIC files with GCC compiler)
+
+-Download GLAD
+-Language: C/C++
+-Profile: Core (for versions +3.3)
+-Version: 3.3 (or higher)
+-GENERATE, download and extract from ZIP file
+-Needed files(folders, COPY IN PROJECT: .):
+	-/include
+	-/src
+-In our project's '/src' there should be 'glad.c' (found in ). There (/src) go ALL source files we write
+
+-Download CMake (We'll use this to compile our own GLFW binary file)
+-Add CMake's /bin folder to PATH (Environment variables)
+
+-Download GLFW (not binary/pre-compiled)(remember where you downloaded it)
+-Compile GLFW for your system (through terminal)
+-Open your terminal
+cd path/to/glfwFolder 
+cmake -S . -B build -G "MinGW Makefiles" -D GLFW_BUILD_EXAMPLES=OFF -D GLFW_BUILD_TESTS=OFF -D USE_MSVC_RUNTIME_LIBRARY_DLL=OFF
+cd build
+mingw32-make
+-After this, needed files:
+	-glfw-3.4\build\src\libglfw3.a (combined binaries, IN PROJECT: /lib)
+	-glfw-3.4\include\GLFW (IN PROJECT: /include)
+
+-glm, std_image, tiny_obj_loader - are single header-files, easy to implement, no flags needed
+
+-Simple compilation (without Makefile):
+g++ -c glad.c -o glad.o -I../include    
+g++ -c main.cpp -o main.o -I../include
+g++ main.o glad.o -o main.exe -L../lib -lopengl32 -lglfw3     
+ 
+-It's up to you whether you want to use a Makefile or .json files

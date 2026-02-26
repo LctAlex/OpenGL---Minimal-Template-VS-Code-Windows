@@ -1,6 +1,0 @@
-g++ -c src/glad.c -o obj/glad.o -Iinclude
-g++ -c src/main.cpp -o obj/main.o -Iinclude
-g++ obj/*.o* -o main.exe -Iinclude -Llib -lopengl32 -lglfw3 -lgdi32
-
-I should really separate (.c) .o files that need to be compiled once - from the others
-/src should only be for the changing files

@@ -1,4 +1,8 @@
+//This is just a messy code I played with + random thoughts and it
+//covers a basic way of drawing a circle (+ other small things) 
 //You can delete this but DON'T delete glad.c !
+
+//The basic #including process
 #include <iostream>
 #include <vector>
 #include <math.h>
