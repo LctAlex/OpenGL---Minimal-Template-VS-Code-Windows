@@ -1,0 +1,33 @@
+I'll reconfigure it again in vscode, this time using tinyobjloader for 3D models (no animations tho)
+
+We'll use STATIC files with GCC compiler
+
+-Download GLAD
+-Language: C/C++
+-Profile: Core (for versions +3.3)
+-Version: 3.3
+-GENERATE, download and extract from ZIP file
+-Needed files(folders, IN PROJECT: .):
+	-/include
+	-/src
+
+-Download CMake (add /bin to PATH)
+
+-Download GLFW (not pre-compiled)
+-Compile GLFW for your system 
+cd path/to/glfw
+cmake -S . -B build -G "MinGW Makefiles" -D GLFW_BUILD_EXAMPLES=OFF -D GLFW_BUILD_TESTS=OFF -D USE_MSVC_RUNTIME_LIBRARY_DLL=OFF
+cd build
+mingw32-make
+-Needed files:
+	-glfw-3.4\build\src\libglfw3.a (combined binaries, IN PROJECT: /lib)
+	-glfw-3.4\include\GLFW (IN PROJECT: /include)
+
+-Lastly, in '/src' there should be 'glad.c'. There (/src) go ALL source files
+
+-Simple compilation:
+g++ -c glad.c -o glad.o -I../include    
+g++ -c main.cpp -o main.o -I../include
+g++ main.o glad.o -o main.exe -L../lib -lopengl32 -lglfw3     
+ 
+-glm, std_image, tiny_obj_loader - are single-file headers, easy to implement
