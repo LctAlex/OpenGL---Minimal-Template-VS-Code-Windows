@@ -1,6 +1,7 @@
 //This is just a messy code I played with + random thoughts and it
 //covers a basic way of drawing a circle (+ other small things) 
-//You can delete this but DON'T delete glad.c !
+//Feel free to try and compile with: mingw32-make all
+//You can delete this file but DON'T delete glad.c! 
 
 //The basic #including process
 #include <iostream>
@@ -17,6 +18,9 @@
 
 #define TINIYOBJLOADER_IMPLEMENTATION
 #include "../include/tiny_obj_loader.h"
+
+//utils
+#include "../utils/utilsExample.hpp" //used in first line in main()
 
 //EVERYTHING should to go inside a class (ex. GLFWwindow window, float deltaTime(time between frames) as members)
 //class will handle everything
@@ -275,6 +279,8 @@ Frames frames;
 
 int main()
 {
+    utilsFunction();
+    
     int screen = 800;
     GLFWwindow* window; 
     try {window = InitWindow(screen, screen, "Hey");}
